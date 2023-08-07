@@ -1,4 +1,4 @@
-SUBDIRS = jellyfish samtools ufasta PacBio 
+SUBDIRS = jellyfish ufasta PacBio 
 ACLOCAL_AMFLAGS = -I m4
 
 EXTRA_DIST = LICENSE.txt
