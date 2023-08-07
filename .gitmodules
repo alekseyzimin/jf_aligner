@@ -7,6 +7,3 @@
 [submodule "ufasta"]
 	path = ufasta
 	url = https://github.com/alekseyzimin/ufasta.git
-[submodule "samtools"]
-	path = samtools
-	url = https://github.com/alekseyzimin/samtools.git
