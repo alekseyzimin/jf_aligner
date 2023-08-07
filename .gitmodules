@@ -1,0 +1,12 @@
+[submodule "jellyfish"]
+	path = jellyfish
+	url = https://github.com/alekseyzimin/Jellyfish.git
+[submodule "PacBio"]
+	path = PacBio
+	url = https://github.com/alekseyzimin/PacBio.git
+[submodule "ufasta"]
+	path = ufasta
+	url = https://github.com/alekseyzimin/ufasta.git
+[submodule "samtools"]
+	path = samtools
+	url = https://github.com/alekseyzimin/samtools.git
