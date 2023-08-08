@@ -21,40 +21,41 @@ ln -s /usr/include/locale.h /usr/include/xlocale.h
 
 # Usage:
 ```
-jf_aligner_cmdline [options]
+Usage: jf_aligner [options]
 
-jf_aligner computes approximate alignments between reference and query DNA sequences 
-
+jf_aligner computes approximate alignments between reference and query DNA sequences
 
 
 Options (default value in (), *required):
- -s, --size=uint64                       *Approximatge size of the reference sequence
- -m, --mer=uint32                        *Mer size
- -F, --fine-mer=uint32                    Mer size for fine alignment
-     --psa-min=uint32                     Min suffix length in SA. Increase for speed up at the cost of memory (13)
+ -s, --size=uint64                       *Approximate size of the reference sequence
+ -m, --mer=uint32                         Alignment K-mer size -- the best practice is to use k-mer size such that the number of distinct k-mer s of that size was about greater or equal to the size of the reference.  4^15 ~ 1 Billion, so 15-mers are good for reference up to 1 Billion in size, 16-mers are good for references up to 4 Billion, etc.  (15)
+ -F, --fine-mer=uint32                    Mer size for fine alignment (experimental)
+     --psa-min=uint32                     Min suffix length in SA. Increase for speed up at the cost of memoryi, minimum 12 (13)
  -t, --threads=uint32                     Number of threads (1)
      --stretch-constant=int               Constant tolerated stretch between matching k-mer in LIS (10)
      --stretch-factor=double              Factor tolerated stretch between matching k-mer in LIS (1.3)
      --stretch-cap=double                 Maximum distance between two consecutive k-mers in LIS (10000.0)
      --window-size=uint32                 Check stretch on every window of k-mer this size (1)
- -f, --forward                            Show all matches forward (reverse super read name if needed) (false)
- -B, --bases-matching=double              Filter base on percent of bases matching (17.0)
- -M, --mers-matching=double               Filter base on percent of k-mer matching (0.0)
+     --forward                            Show all matches in forward direction (false)
+ -B, --bases-matching=double              Minimum percent of bases matching exactly  (17.0)
+ -M, --mers-matching=double               Minimum percent of k-mers matching (0.0)
+ -N, --num-matches=uint32                 Maximum number of best matches output 0:unlimited, for PAF output format only (0)
      --details=path                       Output files with detail k-mer information
-     --coords=path                        Output files with math coordinate information (stdout)
-     --max-match                          Output secondary matches (false)
- -H, --no-header                          Do not output header (false)
- -0, --zero-match                         Output header even if query has no match (false)
-     --max-count=uint32                   Maximum mer count in super read to be used for alignment (5000)
- -l, --unitigs-lengths=path               Length of k-unitigs
- -u, --unitigs-sequences=path             Fasta file containing the sequence of the k-unitigs
-     --compact                            Compact output format (true)
- -k, --k-mer=uint32                       Length of k-mer used to create k-unitigs
- -r, --superreads=path                    reference sequence file
+ -o, --coords=path                        Output file with approximate alignment coordinates information (stdout)
+     --max-match                          Output more than a single match between any two sequences (false)
+ -H, --no-header                          Do not output header (for standard or compact output format only) (false)
+ -0, --zero-match                         Output header even if query has no match (for standard or compact output format only) (false)
+     --max-count=uint32                   Maximum count of K-mer in reference sequence to be used for alignment. K-mers with count above this value are not used for alignment  (5000)
+ -l, --unitigs-lengths=path               Length of k-unitigs (uncommon use case)
+ -u, --unitigs-sequences=path             Fasta file containing the sequence of the k-unitigs (uncommon use case)
+ -f, --format=uint32                      Output format 0:standard 1:compact 2:PAF (1)
+ -k, --k-mer=uint32                       Length of k-mer used to create k-unitigs (uncommon use case)
+ -r, --reference=path                     reference sequence file
  -q, --pacbio=path                        query sequence file
  -U, --usage                              Usage
  -h, --help                               This message
  -V, --version                            Version
+
  ```
 
 # Development 
