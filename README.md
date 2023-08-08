@@ -56,3 +56,17 @@ Options (default value in (), *required):
  -h, --help                               This message
  -V, --version                            Version
  ```
+
+# Development 
+To clone and set up the development tree, please issue the following commands:
+```
+$ git clone https://github.com/alekseyzimin/jf_aligner
+$ cd jf_aligner
+$ git submodule init
+$ git submodule update
+$ cd jellyfish/ && git checkout develop
+$ cd ../PacBio && git checkout jf_aligner
+$ cd ../ufasta && git checkout master
+$ cd ..
+```
+after that you can run 'make' to compile the package.  The binaries will appear under build/inst/bin.  To create a distribution, run 'make install'.
