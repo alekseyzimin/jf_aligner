@@ -9,11 +9,16 @@ To install, first download the latest distribution from the github release page 
 Only for developers:  you can clone the development tree, but then there are dependencies such as swig and yaggo (http://www.swig.org/ and https://github.com/gmarcais/yaggo) that must be available on the PATH:
 
 ```
-git clone https://github.com/alekseyzimin/jf_aligner
-git submodule init
-git submodule update
-make
+$ git clone https://github.com/alekseyzimin/jf_aligner
+$ cd jf_aligner
+$ git submodule init
+$ git submodule update
+$ cd jellyfish/ && git checkout develop
+$ cd ../PacBio && git checkout jf_aligner
+$ cd ../ufasta && git checkout master
+$ cd ..
 ```
+after that you can run 'make' to compile the package.  The binaries will appear under build/inst/bin.  To create a distribution, run 'make install'.
 Note that on some systems you may encounter a build error due to lack of xlocale.h file, because it was removed in glibc 2.26.  xlocale.h is used in Perl extension modules used by jf-aligner.  To fix/work around this error, you can upgrade the Perl extensions, or create a symlink for xlocale.h to /etc/local.h or /usr/include/locale.h, e.g.:
 ```
 ln -s /usr/include/locale.h /usr/include/xlocale.h
@@ -58,16 +63,3 @@ Options (default value in (), *required):
 
  ```
 
-# Development 
-To clone and set up the development tree, please issue the following commands:
-```
-$ git clone https://github.com/alekseyzimin/jf_aligner
-$ cd jf_aligner
-$ git submodule init
-$ git submodule update
-$ cd jellyfish/ && git checkout develop
-$ cd ../PacBio && git checkout jf_aligner
-$ cd ../ufasta && git checkout master
-$ cd ..
-```
-after that you can run 'make' to compile the package.  The binaries will appear under build/inst/bin.  To create a distribution, run 'make install'.
