@@ -1,10 +1,10 @@
-# JF_aligner -- ultra fast tool to compute approximate alignments between genomic DNA sequences
+# PSA_aligner -- ultra fast tool to compute approximate alignments between genomic DNA sequences
 
-JF_aligner uses novel ultrafast data staructure called Partial Suffix Array (PSA) to compute approximate alignments (start/end) between DNA sequences.  Only the start and end coordinares of the alignment are computed.  The alignment is computed bu finding a longest common sequence of k-mers that reference and query sequences have in common.  
+PSA_aligner uses novel ultrafast data staructure called Partial Suffix Array (PSA) to compute approximate alignments (start/end) between DNA sequences.  Only the start and end coordinares of the alignment are computed.  The alignment is computed by finding a longest common sequence of k-mers that reference and query sequences have in common.  
 
 # Installation insructions
 
-To install, first download the latest distribution from the github release page https://github.com/alekseyzimin/jf_aligner/releases.Then untar/unzip the package jf_aligner-X.X.X.tgz, cd to the resulting folder and run `./install.sh`.  The installation script will configure and make all necessary packages.  The jf_aligner executables will appear under bin/
+To install, first download the latest distribution from the github release page https://github.com/alekseyzimin/psa_aligner/releases.Then untar/unzip the package psa_aligner-X.X.X.tgz, cd to the resulting folder and run `./install.sh`.  The installation script will configure and make all necessary packages.  The psa_aligner executables will appear under bin/
 
 Only for developers:  you can clone the development tree, but then there are dependencies such as swig and yaggo (http://www.swig.org/ and https://github.com/gmarcais/yaggo) that must be available on the PATH:
 
@@ -26,10 +26,9 @@ ln -s /usr/include/locale.h /usr/include/xlocale.h
 
 # Usage:
 ```
-Usage: jf_aligner [options]
+Usage: psa_aligner [options]
 
-jf_aligner computes approximate alignments between reference and query DNA sequences
-
+psa_aligner computes approximate alignments between reference and query DNA sequences
 
 Options (default value in (), *required):
  -s, --size=uint64                       *Approximate size of the reference sequence
