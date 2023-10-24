@@ -1,6 +1,6 @@
 # MaSurCA version
-NAME=jf_aligner
-VERSION = 1.0.1
+NAME=psa_aligner
+VERSION = 1.0.2
 NCPU = $(shell grep -c '^processor' /proc/cpuinfo 2>/dev/null || sysctl hw.ncpu 2>/dev/null || echo 1)
 
 # Component versions
